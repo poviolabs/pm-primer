@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Looks like you are starting to complain. This is the path."
+        pr-message: "Congratulations! You have created your first Pull Request! The hard working developers at PovioLabs are very impressed by this and your social standing has been improved dramatically."
